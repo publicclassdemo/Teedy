@@ -111,12 +111,6 @@
             </goals>
           </execution>
         </executions>
-        <configuration>
-          <!-- PMD 配置选项 -->
-          <rulesets>
-            <ruleset>/path/to/your/ruleset.xml</ruleset> <!-- 可选：指定您的自定义规则集 -->
-          </rulesets>
-        </configuration>
       </plugin>
 
       <plugin>
