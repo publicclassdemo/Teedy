@@ -84,7 +84,6 @@
 
   <build>
     <plugins>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
@@ -98,6 +97,26 @@
             <phase>site</phase>
           </execution>
         </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <version>3.14.0</version>
+        <executions>
+          <execution>
+            <phase>verify</phase>
+            <goals>
+              <goal>pmd</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <!-- PMD 配置选项 -->
+          <rulesets>
+            <ruleset>/path/to/your/ruleset.xml</ruleset> <!-- 可选：指定您的自定义规则集 -->
+          </rulesets>
+        </configuration>
       </plugin>
 
       <plugin>
