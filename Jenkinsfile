@@ -4,7 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
                 sh 'mvn -B -DskipTests clean package' 
-                mvn site --fail-never
+                sh 'mvn site --fail-never'
             }
         }
         stage('pmd') {
