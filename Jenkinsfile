@@ -19,7 +19,8 @@ pipeline {
 
         stage('Generate Surefire Report') {
             steps {
-                sh 'mvn surefire-report:report'
+                sh 'mkdir surefire-report'
+                sh 'mvn surefire-report:report -Dsurefire.report.directory=surefire-report'
             }
 
         }
