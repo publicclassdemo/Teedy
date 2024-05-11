@@ -39,7 +39,9 @@ pipeline {
             archiveArtifacts artifacts: '**/target/**/pmd.html', fingerprint: true
             archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
             archiveArtifacts artifacts: '**/target/**/*.war', fingerprint: true
-            archiveArtifacts artifacts: '**/target/surefire-report', fingerprint: true
+            archiveArtifacts artifacts: 'docs-core/target/surefire-report', fingerprint: true
+            archiveArtifacts artifacts: 'docs-web/target/surefire-report', fingerprint: true
+            archiveArtifacts artifacts: 'docs-web-common/target/surefire-report/TEST-com.sismics.docs.rest.util.TestValidationUtil.xml', fingerprint: true
         }
     }
 }
