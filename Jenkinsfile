@@ -19,7 +19,6 @@ pipeline {
 
         stage('Generate Surefire Report') {
             steps {
-                sh 'mkdir surefire-report'
                 sh 'mvn surefire-report:report -Dsurefire.report.directory=surefire-report'
             }
 
@@ -36,11 +35,16 @@ pipeline {
 
     post {
         always {
-            archiveArtifacts artifacts: '**/target/**/pmd.html', fingerprint: true
-            archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
-            archiveArtifacts artifacts: '**/target/**/*.war', fingerprint: true
+            archiveArtifacts artifacts: 'docs-core/target/**/pmd.html', fingerprint: true
+            archiveArtifacts artifacts: 'docs-core/target/**/*.jar', fingerprint: true
+            archiveArtifacts artifacts: 'docs-core/target/**/*.war', fingerprint: true
             archiveArtifacts artifacts: 'docs-core/target/surefire-report', fingerprint: true
+            archiveArtifacts artifacts: 'docs-web/target/**/pmd.html', fingerprint: true
+            archiveArtifacts artifacts: 'docs-web/target/**/*.jar', fingerprint: true
+            archiveArtifacts artifacts: 'docs-web/target/**/*.war', fingerprint: true
             archiveArtifacts artifacts: 'docs-web/target/surefire-report', fingerprint: true
+            archiveArtifacts artifacts: 'docs-web-common/target/**/pmd.html', fingerprint: true
+            archiveArtifacts artifacts: 'docs-web-common/target/**/*.jar', fingerprint: true
             archiveArtifacts artifacts: 'docs-web-common/target/surefire-report/TEST-com.sismics.docs.rest.util.TestValidationUtil.xml', fingerprint: true
         }
     }
