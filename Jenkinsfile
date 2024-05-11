@@ -38,8 +38,8 @@ pipeline {
             archiveArtifacts artifacts: '**/target/**/pmd.html', fingerprint: true
             archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
             archiveArtifacts artifacts: '**/target/**/*.war', fingerprint: true
-            archiveArtifacts artifacts: '**/target/surefire-report', fingerprint: true
-            archiveArtifacts artifacts: '**/target/surefire-report/TEST-com.sismics.docs.rest.util.TestValidationUtil.xml', fingerprint: true
+            archiveArtifacts artifacts: 'surefire-report', fingerprint: true
+            archiveArtifacts artifacts: 'surefire-report/TEST-com.sismics.docs.rest.util.TestValidationUtil.xml', fingerprint: true
         }
     }
 }
