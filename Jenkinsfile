@@ -11,7 +11,7 @@ pipeline {
         stage('Building image') {
             steps {
                 script {
-                    docker.build('kiritoharold/traccytian:latest') // Replace 'your-image-name:tag' with your desired image name and tag
+                    docker.build('wikifor/teedy:latest') // Replace 'your-image-name:tag' with your desired image name and tag
                 }
             }
         }
@@ -20,7 +20,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('', 'docker_hub') {
-                        docker.image('kiritoharold/traccytian:latest').push() // Replace 'your-image-name:tag' with your image name and tag
+                        docker.image('wikifor/teedy:latest').push() // Replace 'your-image-name:tag' with your image name and tag
                     }
                 }
             }
@@ -29,9 +29,9 @@ pipeline {
         stage('Run containers') {
             steps {
                 script {
-                    docker.image('kiritoharold/traccytian:latest').run('-p 10084:10084') // Replace 'your-image-name:tag' with your image name and tag
-                    docker.image('kiritoharold/traccytian:latest').run('-p 10085:10085') // Replace 'your-image-name:tag' with your image name and tag
-                    docker.image('kiritoharold/traccytian:latest').run('-p 10086:10086') // Replace 'your-image-name:tag' with your image name and tag
+                    docker.image('wikifor/teedy:latest').run('-p 10084:10084') // Replace 'your-image-name:tag' with your image name and tag
+                    docker.image('wikifor/teedy:latest').run('-p 10085:10085') // Replace 'your-image-name:tag' with your image name and tag
+                    docker.image('wikifor/teedy:latest').run('-p 10086:10086') // Replace 'your-image-name:tag' with your image name and tag
                 }
             }
         }
