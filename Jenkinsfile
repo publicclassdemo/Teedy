@@ -29,9 +29,9 @@ pipeline {
         stage('Run containers') {
             steps {
                 script {
-                    docker.image('wikifor/teedy:latest').run('-p 8082:8080') // Replace 'your-image-name:tag' with your image name and tag
-                    docker.image('wikifor/teedy:latest').run('-p 8083:8080') // Replace 'your-image-name:tag' with your image name and tag
-                    docker.image('wikifor/teedy:latest').run('-p 8084:8080') // Replace 'your-image-name:tag' with your image name and tag
+                    docker.image('wikifor/teedy:latest').run('-p 10083:8080') // Replace 'your-image-name:tag' with your image name and tag
+                    docker.image('wikifor/teedy:latest').run('-p 10084:8080') // Replace 'your-image-name:tag' with your image name and tag
+                    docker.image('wikifor/teedy:latest').run('-p 10085:8080') // Replace 'your-image-name:tag' with your image name and tag
                 }
             }
         }
