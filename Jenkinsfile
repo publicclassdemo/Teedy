@@ -10,7 +10,7 @@ pipeline {
         // Building Docker image
         stage('K8s') {
             steps {
-                sh 'kubectl set image deployments/hello-node docs=kiritoharold/traccytian:latest'
+                sh 'kubectl set image deployments/hello-node docs=wikifor/teedy:latest'
             }
         }
     }
