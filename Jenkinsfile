@@ -8,31 +8,9 @@ pipeline {
             }
         }
         // Building Docker image
-        stage('Building image') {
+        stage('K8s') {
             steps {
-                script {
-                    docker.build('wikifor/teedy:latest') // Replace 'your-image-name:tag' with your desired image name and tag
-                }
-            }
-        }
-        // Pushing Docker image to Docker Hub
-        stage('Upload image') {
-            steps {
-                script {
-                    docker.withRegistry('', 'docker_hub') {
-                        docker.image('wikifor/teedy:latest').push() // Replace 'your-image-name:tag' with your image name and tag
-                    }
-                }
-            }
-        }
-        // Running Docker containers
-        stage('Run containers') {
-            steps {
-                script {
-                    docker.image('wikifor/teedy:latest').run('-p 10083:8080') // Replace 'your-image-name:tag' with your image name and tag
-                    docker.image('wikifor/teedy:latest').run('-p 10084:8080') // Replace 'your-image-name:tag' with your image name and tag
-                    docker.image('wikifor/teedy:latest').run('-p 10085:8080') // Replace 'your-image-name:tag' with your image name and tag
-                }
+                sh 'kubectl set image deployments/hello-node docs=kiritoharold/traccytian:latest'
             }
         }
     }
